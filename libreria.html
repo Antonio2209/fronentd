@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce de Libros</title>
+    <link rel="stylesheet" href="libreria.css">
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <h1>Tienda de Libros</h1>
+        <input type="text" id="search" placeholder="Buscar libros...">
+        <div class="cart">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAjxJREFUSEvFlUuoTWEYhp9XBi6REumMSAYnExOJzoSBDE4GLhNmp46DMjBQDETKZWAgnTo5KSNGDI2EgSjFQAkDl3KJYnByMnDJa3/6l5ZtX/519t72V2uy1r/+5/ve73+/X/Qp1Ccu/QfbXg7EEzEt6WEv1fhTse3jwLES7DmwRdKLXiTQChy8R5LW9BpclnobcCABhyTd7Ta84eGyvRj4AMwGrkja/V/AAbF9GdgFfAO2Al87hL+W9LLYo6mdbA8BdzqE1f++Q9K1eNnSx7YfA6u7CB+RdCkHvAe4kMCngBszSOIksAH4ASyRNJUDnge8BxYGVNLmKmDb84FPwBzgqqSdbXtcLLB9PlnLwKoqA8V2WbFhSdergFcCMcUizkk6mFu17XvAeuAjsEzSz2xwstZNYBPwGVgqqa21bK8ACvuclXSonHDW7WR7e/Qo/Tgq6WK7qm3HYTyS1g1KejYT8CzgXcgFPJHU0mK2o6C3wADwoNbbtfWJZlWc5D4KnEgbjACvWlQdiY2n7/slTXQCjmrfpPndTuni+/d0Jn57t7LUJWtN1iQfzaXG8JG0t9H6bKmT3NHr6NfcDPiX1N/w/z9RCZzgMRQWAROSput3tL0A2AdMSQqFGkYlsO3TwOG0021J4e2/wvYtYGN6eabm+cJSHfW4vKklhfT14JhORUENk4sfqlZcnr2TksYagOM2i3URY83krgROPR6M20rS/Wb9s70uxqukp13pccZJzl5SueLsndss7Bv4FzrXvB9M0BgJAAAAAElFTkSuQmCC"/>
+            <button id="cartButton">Carrito (0)</button>
+        </div>
+    </header>
+
+    <!-- Lista de libros -->
+    <main>
+        <div id="bookList" class="book-list">
+            <!-- Los libros se cargarán dinámicamente aquí -->
+        </div>
+    </main>
+
+    <!-- Carrito -->
+    <div id="cartModal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Tu carrito</h2>
+            <ul id="cartItems"></ul>
+            <p>Total: $<span id="totalPrice">0</span></p>
+            <button id="checkoutButton">Finalizar Compra</button>
+            <button id="closeCart">Cerrar</button>
+        </div>
+    </div>
+
+    <script src="libreria.js"></script>
+</body>
+</html>
