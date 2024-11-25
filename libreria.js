@@ -4,6 +4,7 @@ const books = [
     { id: 2, title: "Cien Años de Soledad", price: 20, image: "https://via.placeholder.com/150" },
     { id: 3, title: "El Principito", price: 10, image: "https://via.placeholder.com/150" },
     { id: 4, title: "1984", price: 18, image: "https://via.placeholder.com/150" },
+    { id: 5, title: "El Señor de los Anillos", price: 25, image: "https://via.placeholder.com/150" }
 ];
 
 // Variables del carrito
@@ -66,3 +67,29 @@ closeCart.addEventListener("click", () => {
 
 // Inicializar
 displayBooks();
+
+// Referencias a elementos del DOM comentario
+const commentForm = document.getElementById("commentForm");
+const commentInput = document.getElementById("commentInput");
+const commentList = document.getElementById("commentList");
+
+// Manejar el envío del formulario
+commentForm.addEventListener("submit", (event) => {
+    event.preventDefault(); // Prevenir recarga de la página
+
+    // Obtener el comentario
+    const comment = commentInput.value.trim();
+
+    if (comment) {
+        // Crear un nuevo elemento de lista
+        const newComment = document.createElement("li");
+        newComment.textContent = comment;
+
+        // Agregar el comentario a la lista
+        commentList.appendChild(newComment);
+
+        // Limpiar el campo de texto
+        commentInput.value = "";
+    }
+});
+
