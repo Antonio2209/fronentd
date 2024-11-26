@@ -49,6 +49,14 @@ function updateCart() {
         total += item.price;
         const li = document.createElement("li");
         li.textContent = `${item.title} - $${item.price}`;
+        const removeButton = document.createElement("button");
+        removeButton.ge
+        removeButton.textContent = "Eliminar";
+        removeButton.onclick = () => {
+            cart.splice(index, 1);
+            updateCart();
+        };
+        li.appendChild(removeButton);
         cartItems.appendChild(li);
     });
 
@@ -68,28 +76,96 @@ closeCart.addEventListener("click", () => {
 // Inicializar
 displayBooks();
 
-// Referencias a elementos del DOM comentario
-const commentForm = document.getElementById("commentForm");
-const commentInput = document.getElementById("commentInput");
-const commentList = document.getElementById("commentList");
+// Cargar comentarios guardados al cargar la página
+window.onload = () => {
+    const savedComments = JSON.parse(localStorage.getItem("comments")) || [];
+    savedComments.forEach(({ username, comment }) => {
+        const newComment = document.createElement("li");
+        newComment.innerHTML = `
+            <span>${username}:</span>
+            ${comment}
+        `;
+        commentList.appendChild(newComment);
+    });
+};
 
-// Manejar el envío del formulario
+// Guardar un comentario nuevo
 commentForm.addEventListener("submit", (event) => {
-    event.preventDefault(); // Prevenir recarga de la página
+    event.preventDefault();
 
-    // Obtener el comentario
+    const username = usernameInput.value.trim();
     const comment = commentInput.value.trim();
 
-    if (comment) {
-        // Crear un nuevo elemento de lista
+    if (username && comment) {
         const newComment = document.createElement("li");
-        newComment.textContent = comment;
-
-        // Agregar el comentario a la lista
+        newComment.innerHTML = `
+            <span>${username}:</span>
+            ${comment}
+        `;
         commentList.appendChild(newComment);
 
-        // Limpiar el campo de texto
+        // Guardar en localStorage
+        const savedComments = JSON.parse(localStorage.getItem("comments")) || [];
+        savedComments.push({ username, comment });
+        localStorage.setItem("comments", JSON.stringify(savedComments));
+
+        // Limpiar los campos de texto
+        usernameInput.value = "";
         commentInput.value = "";
     }
 });
 
+//Boton de busqueda 
+// Referencias a elementos del DOM
+const searchInput = document.getElementById("searchInput");
+const searchButton = document.getElementById("searchButton");
+const searchResults = document.getElementById("searchResults");
+
+
+
+// Función de búsqueda
+function searchBooks() {
+    const query = searchInput.value.trim().toLowerCase(); // Obtener la búsqueda en minúsculas
+    searchResults.innerHTML = ""; // Limpiar resultados anteriores
+
+    if (query === "") {
+        searchResults.innerHTML = "<p>Por favor, escribe algo para buscar.</p>";
+        return;
+    }
+
+    // Filtrar libros por título
+    const filteredBooks = books.filter((book) =>
+        book.title.toLowerCase().includes(query)
+    );
+
+    // Mostrar resultados
+    if (filteredBooks.length > 0) {
+        filteredBooks.forEach((book) => {
+            const bookDiv = document.createElement("div");
+            bookDiv.classList.add("book");
+            bookDiv.innerHTML = `
+                <img src="${book.image}" alt="${book.title}">
+                <h3>${book.title}</h3>
+                <p>Precio: $${book.price}</p>
+                <button onclick="addToCart(${book.id})">Agregar al carrito</button>
+            `;
+            searchResults.appendChild(bookDiv);
+        });
+    } else {
+        searchResults.innerHTML = "<p>No se encontraron resultados.</p>";
+    }
+}
+
+// Evento de clic en el botón
+searchButton.addEventListener("click", (e) => {
+    e.preventDefault(); // Evitar recarga de la página
+    searchBooks();
+});
+
+// Evento al presionar Enter en el campo de búsqueda
+searchInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+        e.preventDefault();
+        searchBooks();
+    }
+});

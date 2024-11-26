@@ -1,69 +1,84 @@
+
 /* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Comic Sans MS', sans-serif; /* Fuente más divertida */
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    background-color: #f9f9f9; /* Color de fondo más claro */
+    overflow-x: hidden; /* Ocultar el desbordamiento horizontal */
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #333;
+    background-color: #333; /* Color de fondo más oscuro */
     color: white;
-    padding: 10px 20px;
+    padding: 20px 30px; /* Aumentar el padding */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
 }
 
 header input {
-    padding: 5px;
-    font-size: 16px;
+    padding: 10px; /* Aumentar el padding */
+    font-size: 18px; /* Tamaño de fuente más grande */
+    border-radius: 20px; /* Redondear los bordes */
+    border: 2px solid #ccc; /* Color del borde más claro */
 }
 
+
+
 .cart button {
-    background-color: #ff6b6b;
+    background-color: #ff6b6b; /* Color de fondo más brillante */
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 15px 20px; /* Aumentar el padding */
     cursor: pointer;
+    border-radius: 20px; /* Redondear los bordes */
+    transition: background-color 0.3s ease; /* Transición para el hover */
 }
 
 .cart button:hover {
-    background-color: #ff4949;
+    background-color: #ff4949; /* Color de fondo más oscuro al pasar el mouse */
 }
 
 /* Lista de libros */
 .book-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Aumentar el tamaño de los libros */
+    gap: 30px; /* Aumentar el espacio entre los libros */
+    padding: 30px; /* Aumentar el padding */
+    background-color: #f9f9f9; /* Color de fondo más claro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
 }
 
 .book {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
+    background-color: white; /* Color de fondo blanco */
+    border: 2px solid #ddd; /* Color del borde más claro */
+    border-radius: 10px; /* Redondear los bordes */
+    padding: 15px; /* Aumentar el padding */
     text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
 }
 
 .book img {
     max-width: 100%;
     height: auto;
+    border-radius: 10px; /* Redondear los bordes de la imagen */
 }
 
 .book button {
-    background-color: #007bff;
+    background-color: #007bff; /* Color de fondo más brillante */
     color: white;
     border: none;
-    padding: 10px;
-    margin-top: 10px;
+    padding: 15px; /* Aumentar el padding */
+    margin-top: 15px; /* Aumentar el margen superior */
     cursor: pointer;
+    border-radius: 20px; /* Redondear los bordes */
+    transition: background-color 0.3s ease; /* Transición para el hover */
 }
 
 .book button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Color de fondo más oscuro al pasar el mouse */
 }
 
 /* Modal del carrito */
@@ -73,61 +88,67 @@ header input {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5); /* Color de fondo más oscuro */
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    transition: opacity 0.3s ease; /* Transición para la opacidad */
 }
 
 .modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 5px;
+    background: white; /* Color de fondo blanco */
+    padding: 30px; /* Aumentar el padding */
+    border-radius: 10px; /* Redondear los bordes */
     width: 90%;
     max-width: 500px;
     text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
 }
 
 .modal.hidden {
     display: none;
 }
+/* Estilos para los comentarios */
+
+
 
 /* Estilos para los comentarios */
 
 #commentsSection {
-    margin: 20px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    margin: 30px; /* Aumentar el margen */
+    padding: 30px; /* Aumentar el padding */
+    background-color: #f9f9f9; /* Color de fondo más claro */
+    border: 2px solid #ddd; /* Color del borde más claro */
+    border-radius: 10px; /* Redondear los bordes */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
 }
 
 #commentForm {
-    margin-bottom: 20px;
+    margin-bottom: 30px; /* Aumentar el margen inferior */
 }
 
 #commentInput {
     width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 15px; /* Aumentar el padding */
+    font-size: 18px; /* Tamaño de fuente más grande */
+    border: 2px solid #ccc; /* Color del borde más claro */
+    border-radius: 20px; /* Redondear los bordes */
 }
 
 #commentForm button {
-    background-color: #007bff;
+    background-color: #007bff; /* Color de fondo más brillante */
     color: white;
     border: none;
-    padding: 10px 15px;
-    font-size: 16px;
+    padding: 15px 20px; /* Aumentar el padding */
+    font-size: 18px; /* Tamaño de fuente más grande */
     cursor: pointer;
-    border-radius: 5px;
-    margin-top: 10px;
+    border-radius: 20px; /* Redondear los bordes */
+    transition: background-color 0.3s ease; /* Transición para el hover */
 }
 
 #commentForm button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Color de fondo más oscuro al pasar el mouse */
 }
 
 #commentList {
@@ -136,9 +157,50 @@ header input {
 }
 
 #commentList li {
-    margin-bottom: 15px;
+    margin-bottom: 20px; /* Aumentar el margen inferior */
+    padding: 15px; /* Aumentar el padding */
+    background-color: #fff; /* Color de fondo blanco */
+    border: 2px solid #ddd; /* Color del borde más claro */
+    border-radius: 10px; /* Redondear los bordes */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+}
+/*estilo boton de busqueda*/
+#searchSection {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+#searchInput {
+    flex: 1;
     padding: 10px;
-    background-color: #fff;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+#searchButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    transition: background-color 0.3s;
+}
+
+#searchButton:hover {
+    background-color: #0056b3;
+}
+
+#searchResults {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 5px;
 }
+
+
