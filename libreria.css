@@ -1,22 +1,30 @@
 
 /* Estilos generales */
 body {
-    font-family: 'Comic Sans MS', sans-serif; /* Fuente más divertida */
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9; /* Color de fondo más claro */
-    overflow-x: hidden; /* Ocultar el desbordamiento horizontal */
+    background-color: #f4f4f4;
+    color: #333;
 }
+
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #333; /* Color de fondo más oscuro */
+    padding: 20px;
+    background: linear-gradient(90deg, #0077ff, #00d4ff);
     color: white;
-    padding: 20px 30px; /* Aumentar el padding */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
+header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
 
 header input {
     padding: 10px; /* Aumentar el padding */
@@ -39,6 +47,10 @@ header input {
 
 .cart button:hover {
     background-color: #ff4949; /* Color de fondo más oscuro al pasar el mouse */
+}
+.cart {
+    display: flex;
+    align-items: center;
 }
 
 /* Lista de libros */
@@ -77,8 +89,38 @@ header input {
     transition: background-color 0.3s ease; /* Transición para el hover */
 }
 
+.book:hover {
+    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.book-card img {
+    width: 100%;
+    border-radius: 10px;
+    
+}
+
+.book-card h3 {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.book-card p {
+    margin: 0;
+    color: #777;
+}
+.book-card {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    
+}
+
 .book button:hover {
     background-color: #0056b3; /* Color de fondo más oscuro al pasar el mouse */
+    
 }
 
 /* Modal del carrito */
@@ -201,6 +243,53 @@ header input {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 5px;
+}
+
+/* Libros en oferta */
+#offersSection {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #8ed6e2; /* Fondo color crema para resaltar */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+    
+}
+
+#offersSection h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #101416; /* Color de título para destacar */
+    margin-bottom: 20px;
+}
+
+#offersList .book-card {
+    border: 2px solid #4abcd8; /* Resaltar borde en libros en oferta */
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 5px;
+    width: 350px;
+    height: 500px;
+    margin: 5px;
+    left: 200x;
+
+    
+}
+
+#offersList .book-card:hover {
+
+    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#offersList button {
+    background-color: #007bff; /* Color de fondo más brillante */
+    color: white;
+    border: none;
+    padding: 15px; /* Aumentar el padding */
+    margin-top: 15px; /* Aumentar el margen superior */
+    cursor: pointer;
+    border-radius: 20px; /* Redondear los bordes */
+    transition: background-color 0.3s ease; /* Transición para el hover */
 }
 
 

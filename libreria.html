@@ -5,32 +5,138 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Commerce de Libros</title>
     <link rel="stylesheet" href="libreria.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+       
+       
+
+        
+        
+
+        
+        
+
+      
+
+        .cart img {
+            width: 24px;
+            margin-right: 5px;
+        }
+
+        .cart button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        
+
+        
+
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        #checkoutButton {
+            background-color: #0077ff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        #closeCart{
+            background-color: #0077ff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        
+        #checkoutButton:hover {
+            background-color: #005bbb;
+        }
+        #closeCart:hover{
+            background-color: #005bbb;
+        }
+
+        #commentsSection {
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+        }
+
+        #commentForm input, #commentForm textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        #commentForm button {
+            padding: 10px 20px;
+            background-color: #0077ff;
+            border: none;
+            border-radius: 20px;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #commentForm button:hover {
+            background-color: #005bbb;
+        }
+    </style>
 </head>
 <body>
-    <!-- Encabezado -->
     <header>
-        <h1>Tienda de Libros</h1>
+        <h1><i class="fas fa-book"></i> Tienda de Libros</h1>
         <section id="searchSection">
             <input type="text" id="searchInput" placeholder="Busca un libro..." />
-            <button id="searchButton">Buscar</button>
+            <button id="searchButton"><i class="fas fa-search"></i> Buscar</button>
         </section>
-        
-
-
-        <div class="cart">
-        
-            <button id="cartButton"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAjxJREFUSEvFlUuoTWEYhp9XBi6REumMSAYnExOJzoSBDE4GLhNmp46DMjBQDETKZWAgnTo5KSNGDI2EgSjFQAkDl3KJYnByMnDJa3/6l5ZtX/519t72V2uy1r/+5/ve73+/X/Qp1Ccu/QfbXg7EEzEt6WEv1fhTse3jwLES7DmwRdKLXiTQChy8R5LW9BpclnobcCABhyTd7Ta84eGyvRj4AMwGrkja/V/AAbF9GdgFfAO2Al87hL+W9LLYo6mdbA8BdzqE1f++Q9K1eNnSx7YfA6u7CB+RdCkHvAe4kMCngBszSOIksAH4ASyRNJUDnge8BxYGVNLmKmDb84FPwBzgqqSdbXtcLLB9PlnLwKoqA8V2WbFhSdergFcCMcUizkk6mFu17XvAeuAjsEzSz2xwstZNYBPwGVgqqa21bK8ACvuclXSonHDW7WR7e/Qo/Tgq6WK7qm3HYTyS1g1KejYT8CzgXcgFPJHU0mK2o6C3wADwoNbbtfWJZlWc5D4KnEgbjACvWlQdiY2n7/slTXQCjmrfpPndTuni+/d0Jn57t7LUJWtN1iQfzaXG8JG0t9H6bKmT3NHr6NfcDPiX1N/w/z9RCZzgMRQWAROSput3tL0A2AdMSQqFGkYlsO3TwOG0021J4e2/wvYtYGN6eabm+cJSHfW4vKklhfT14JhORUENk4sfqlZcnr2TksYagOM2i3URY83krgROPR6M20rS/Wb9s70uxqukp13pccZJzl5SueLsndss7Bv4FzrXvB9M0BgJAAAAAElFTkSuQmCC"/>Carrito (0)</button>
+        <div class="cart" id="cartButton">
+            <button>
+                <i class="fas fa-shopping-cart"></i> Carrito (0)
+            </button>
         </div>
     </header>
     <div id="searchResults"></div>
-    <!-- Lista de libros -->
     <main>
         <div id="bookList" class="book-list">
             <!-- Los libros se cargarán dinámicamente aquí -->
+            
         </div>
     </main>
 
-    <!-- Carrito -->
+    <main>
+            <!-- Los libros se cargarán dinámicamente aquí -->
+            <section id="offersSection">
+                <h2>Libros en Promoción</h2>
+                <div id="offersList" class="book-list">
+                    <!-- Los libros en oferta se cargarán dinámicamente aquí -->
+                </div>
+            </section>
+            
+        </div>
+    </main>
+
     <div id="cartModal" class="modal hidden">
         <div class="modal-content">
             <h2>Tu carrito</h2>
@@ -44,11 +150,9 @@
     <section id="commentsSection">
         <h2>Deja un comentario</h2>
         <form id="commentForm">
-            <input type="text" id="usernameInput" placeholder="Tu nombre..." required />
-            <br>
-            <textarea id="commentInput" placeholder="Escribe tu comentario aquí..." rows="4" required></textarea>
-            <br>
-            <button type="submit">Enviar comentario</button>
+            <input type="text" id="usernameInput" placeholder="Tu nombre..."  />
+            <textarea id="commentInput" placeholder="Escribe tu comentario aquí..." rows="4" ></textarea>
+            <button type="submit"><i class="fas fa-paper-plane"></i> Enviar comentario</button>
         </form>
         <h3>Comentarios:</h3>
         <ul id="commentList">
@@ -56,6 +160,6 @@
         </ul>
     </section>
 
-    <script src="libreria.js"></script>
+<script src="libreria.js"></script>
 </body>
 </html>
